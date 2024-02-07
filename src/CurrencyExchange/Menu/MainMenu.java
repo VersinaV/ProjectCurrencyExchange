@@ -2,13 +2,26 @@ package CurrencyExchange.Menu;
 
 import CurrencyExchange.Exchange.ExchangeHistory;
 
-public class MainMenu { // Основное меню программы
+/**
+ * Класс, представляющий главное меню программы обмена валютой.
+ */
+public class MainMenu {
 
+  /**
+   * Главный метод программы.
+   *
+   * @param args Параметры командной строки.
+   */
   public static void main(String[] args) {
-    MainApp mainMenu = new MainApp(); // Создание объекта для основного меню
-    mainMenu.runMainMenu();          // Запуск главного меню
-    ExchangeHistory exchangeHistory = new ExchangeHistory();  // Создание объекта для истории обмена валюты
-    mainMenu.display(); // Отображение главного меню
-    exchangeHistory.viewHistory(); // Просмотр истории обмена валюты
+    // Создание объекта для основного меню
+    MainApp mainMenu = new MainApp();
+    // Запуск главного меню
+    mainMenu.runMainMenu();
+    // Создание объекта для истории обмена валюты
+    ExchangeHistory exchangeHistory = new ExchangeHistory();
+    // Отображение главного меню
+    mainMenu.display();
+    // Просмотр истории обмена валюты
+    exchangeHistory.viewHistory();
   }
 }

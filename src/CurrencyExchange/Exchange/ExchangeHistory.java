@@ -9,19 +9,20 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-/*
-Сохранение истории обмена:
-Приложение должно сохранять историю всех совершенных обменов.
-История должна включать дату и время обмена, сумму и типы обмениваемых валют.
-Должна быть предусмотрена возможность просмотра истории обменов.
-Для этого, должно быть разработано элементарное консольное меню.
+/**
+ * Класс ExchangeHistory предоставляет функциональность для сохранения и просмотра истории обмена
+ * валюты. История включает дату и время обмена, сумму и типы обмениваемых валют. Для просмотра
+ * истории предусмотрено консольное меню.
  */
 public class ExchangeHistory {
 
   private final ArrayList<Exchange> exchangeHistory;
   private final File file;
 
-
+  /**
+   * Конструктор класса ExchangeHistory. Инициализирует список для хранения истории обмена и файл
+   * для сохранения истории в файле.
+   */
   public ExchangeHistory() {
     this.exchangeHistory = new ArrayList<>();
     this.file = new File("file.exchangeHistory");
@@ -34,6 +35,9 @@ public class ExchangeHistory {
 
   }
 
+  /**
+   * Метод для сохранения информации об обмене в истории.
+   */
   public void viewHistory() {
     if (exchangeHistory.isEmpty()) {
       System.out.println("История обменов пуста.");
@@ -55,12 +59,22 @@ public class ExchangeHistory {
       }
     }
   }
+
+  /**
+   * Метод для просмотра истории обмена. Отображает дату, время и детали каждого обмена в консоли и
+   * записывает в файл.
+   */
   private String getFormattedDate() {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     Date currentDate = new Date();
     return sdf.format(currentDate);
   }
 
+  /**
+   * Метод для записи информации об обмене в файл.
+   *
+   * @param exchangeInfo Информация об обмене для записи.
+   */
   private void writeToFile(String exchangeInfo) {
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
       String formattedDate = getFormattedDate();

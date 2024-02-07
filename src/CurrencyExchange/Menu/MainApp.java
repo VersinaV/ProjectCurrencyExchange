@@ -5,10 +5,16 @@ import CurrencyExchange.Exchange.UserInterface;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Класс представляет главное меню приложения обмена валюты.
+ */
 public class MainApp {
 
   private static final ExchangeHistory exchangeHistory = new ExchangeHistory();
 
+  /**
+   * Метод для выполнения опции обмена валюты.
+   */
   private static void exchangeCurrencyOption() {
     Scanner scanner = new Scanner(System.in);
 
@@ -31,6 +37,9 @@ public class MainApp {
     }
   }
 
+  /**
+   * Метод отображения главного меню.
+   */
   public void display() {
     System.out.println("Главное меню:");
     System.out.println("1. Обмен валюты");
@@ -39,6 +48,9 @@ public class MainApp {
     System.out.print("Выберите опцию: ");
   }
 
+  /**
+   * Метод запуска главного меню приложения.
+   */
   public void runMainMenu() {
     while (true) {
       try {
